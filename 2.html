@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, My Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Lobster&display=swap" rel="stylesheet" />
+  <style>
+    body.closing {
+  animation: flopExit 1s ease forwards;
+}
+
+@keyframes flopExit {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  60% {
+    transform: scale(0.9) rotate(-8deg);
+  }
+  100% {
+    transform: scale(0.5) rotate(20deg);
+    opacity: 0;
+  }
+}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: linear-gradient(135deg, #8e2de2 0%, #ff6ec4 50%, #00c3ff 100%);
+      background-size: 400% 400%;
+      animation: gradientBG 8s ease infinite;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'%3E%3Cpath fill='%23FFDF00' d='M12 0L14.91 7.09L22 9.9L14.91 12.91L12 20L9.09 12.91L2 9.9L9.09 7.09z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      width: 20px;
+      height: 20px;
+      animation: twinkle 2s infinite;
+    }
+
+    .welcome-card {
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      border: 3px solid rgba(255, 215, 0, 0.6);
+      box-shadow: 0 8px 32px rgba(255, 105, 0, 0.4), 0 0 20px rgba(255, 215, 0, 0.5);
+      border-radius: 30px;
+      padding: 50px 30px;
+      text-align: center;
+      max-width: 90%;
+      width: 500px;
+      position: relative;
+      z-index: 10;
+    }
+
+    h1 {
+      font-family: 'Lobster', cursive;
+      color: #ff0051;
+      font-size: 3.2rem;
+      margin-bottom: 20px;
+      text-shadow: 3px 3px 0px rgba(255, 215, 0, 0.5),
+                   6px 6px 15px rgba(0, 0, 0, 0.2);
+      animation: bounce 2s ease infinite alternate;
+    }
+
+    p {
+      font-family: 'Dancing Script', cursive;
+      color: #7209b7;
+      font-size: 1.4rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+    }
+
+    .heart-button-container {
+      position: relative;
+      margin: 20px auto 10px;
+      width: 120px;
+      height: 120px;
+      perspective: 500px;
+    }
+
+    .heart-button {
+      position: relative;
+      width: 90px;
+      height: 80px;
+      margin: 0 auto;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+      transform-style: preserve-3d;
+      animation: heartBeat 2s infinite alternate, glowPulse 2s ease-in-out infinite;
+    }
+
+    .heart-button:before,
+    .heart-button:after {
+      position: absolute;
+      content: "";
+      left: 45px;
+      top: 0;
+      width: 45px;
+      height: 70px;
+      background: #ff0051;
+      border-radius: 50px 50px 0 0;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+    }
+
+    .heart-button:after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    .heart-button-text {
+      position: relative;
+      z-index: 5;
+      font-family: 'Pacifico', cursive;
+      color: white;
+      font-size: 1.2rem;
+      top: 28px;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .floating-heart, .floating-emoji {
+      position: fixed;
+      z-index: 1;
+      pointer-events: none;
+      animation: floatUp 6s linear forwards;
+      font-size: 24px;
+      opacity: 0.9;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    @keyframes glowPulse {
+      0% { box-shadow: 0 0 10px rgba(255, 0, 100, 0.5); }
+      50% { box-shadow: 0 0 30px rgba(255, 0, 100, 0.8); }
+      100% { box-shadow: 0 0 10px rgba(255, 0, 100, 0.5); }
+    }
+
+    @keyframes heartBeat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+      100% { opacity: 0.3; transform: scale(0.8); }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 2.3rem; }
+      p { font-size: 1.1rem; }
+      .heart-button-container { transform: scale(0.9); }
+    }
+</style>
+ </head>
+<body>
+  <div class="stars" id="stars"></div>
+
+  <div class="welcome-card" id="welcomeCard">
+    <h1>Happy Birthday, my madam ji ✨ 🎂🎉</h1>
+    <p>This page is just for you... made with love, smile, and a little bit of magic...</p>
+
+    <div class="heart-button-container">
+      <div class="heart-button" id="startButton">
+        <div class="heart-button-text">Begin</div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="bgMusic" loop autoplay>
+    <source src="https://cdn.pixabay.com/download/audio/2022/07/24/audio_8281aefa0a.mp3?filename=emotional-piano-118996.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const starsContainer = document.getElementById('stars');
+    const bgMusic = document.getElementById('bgMusic');
+    const startButton = document.getElementById('startButton');
+    const welcomeCard = document.getElementById('welcomeCard');
+
+    // 🌟 Twinkling Stars
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.animationDuration = `${1 + Math.random() * 2}s`;
+      star.style.transform = `scale(${Math.random() * 0.7 + 0.4})`;
+      starsContainer.appendChild(star);
+    }
+
+    // 💖 Floating Emojis & Hearts
+ function createFloatingEmoji() {
+  const emojis = ['💖','🎈','🎂','🥰','🎉','❤️','😍','💝','💫','🦄','✨','👑','🌸','💐'];
+  const emoji = document.createElement('div');
+  emoji.className = Math.random() > 0.4 ? 'floating-emoji' : 'floating-heart';
+  emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+  // random position and size
+  emoji.style.left = `${Math.random() * 100}%`;
+  emoji.style.fontSize = `${32 + Math.random() * 20}px`; // BIGGER
+  emoji.style.top = '100%';
+  emoji.style.opacity = `${0.7 + Math.random() * 0.3}`;
+  emoji.style.zIndex = '3';
+
+  document.body.appendChild(emoji);
+  setTimeout(() => emoji.remove(), 7000);
+}
+ setInterval(createFloatingEmoji, 300);
+
+    // 🎈 Floating Balloons
+    function createBalloon() {
+      const balloon = document.createElement('div');
+      balloon.className = 'floating-heart';
+      balloon.textContent = '🎈';
+      balloon.style.left = `${Math.random() * 100}%`;
+      balloon.style.fontSize = `${30 + Math.random() * 10}px`;
+      balloon.style.top = '100%';
+      document.body.appendChild(balloon);
+      setTimeout(() => balloon.remove(), 8000);
+    }
+ // 🎁 Floppy Exit on Begin
+startButton.addEventListener('click', () => {
+  document.body.classList.add('closing');
+
+  for (let i = 0; i < 30; i++) {
+    setTimeout(createFloatingEmoji, i * 80);
+  }
+
+  setTimeout(() => {
+    window.location.href = '3.html'; // 👉 Change to your next page here
+  }, 1000); // Wait for animation
+});
+    setInterval(createBalloon, 2000);

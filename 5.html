@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Letter for Ahana 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Baloo+2&display=swap" rel="stylesheet">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: linear-gradient(135deg, #00c3ff, #ff6ec4, #8e2de2);
+      background-size: 400% 400%;
+      animation: bgMove 15s ease infinite;
+      font-family: 'Dancing Script', cursive;
+      overflow-x: hidden;
+      color: white;
+      scroll-behavior: smooth;
+    }
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .floating {
+      position: absolute;
+      top: 100%;
+      font-size: 28px;
+      pointer-events: none;
+      animation: floatUp 10s linear forwards;
+      opacity: 0.15;
+      z-index: 0;
+      text-shadow: 0 0 8px rgba(255,255,255,0.5);
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 0.4; }
+      100% { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floppy {
+      0%, 100% { transform: scale(1); }
+      30% { transform: scale(1.1, 0.9); }
+      60% { transform: scale(0.95, 1.05); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .letter {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      border: 2px dashed white;
+      border-radius: 25px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      padding: 40px;
+      max-width: 800px;
+      font-size: 1.7rem;
+      line-height: 2.7rem;
+      animation: fadeIn 1.2s ease-in-out, floppy 0.6s ease-in-out;
+      color: white;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .typing {
+      overflow: hidden;
+      white-space: nowrap;
+      width: 0;
+      animation: typing 3s steps(40, end) forwards;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 1.7rem;
+      background: transparent;
+      color: white;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .surprise-btn {
+      font-family: 'Baloo 2', cursive;
+      font-size: 1.6rem;
+      background: #ff4564;
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+      transition: transform 0.2s ease;
+      animation: floppy 0.4s ease-in-out;
+      margin-top: 40px;
+    }
+
+    .surprise-btn:hover {
+      transform: scale(1.07);
+    }
+
+    .surprise-btn:active {
+      animation: floppyClick 0.4s ease-in-out;
+    }
+
+    @keyframes floppyClick {
+      0%   { transform: scale(1); }
+      30%  { transform: scale(1.15, 0.85); }
+      60%  { transform: scale(0.9, 1.1); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background emoji animation -->
+  <div class="background" id="emoji-bg"></div>
+
+  <div class="container">
+    <div class="letter">
+      <div class="typing">A Letter for Ahana 💌</div><br>
+
+      Dear Madam Ji ✨ (a.k.a the sweet villain of my peaceful life),<br><br>
+
+      First of all — Happy Birthday! 🎉 I had two options: wish you like a normal boring person... or do something slightly unhinged, creative, and totally *me*. Clearly, you’re reading this — so you know what I chose 😎<br><br>
+
+      We've known each other for what feels like forever — longer than most of my favorite playlists have stayed untouched. And in all that time, you've become more than just a friend... you became my favourite notification.<br><br>
+
+      You're smart (scarily smart sometimes), funny (even when you're not trying), and somehow, you still listen to my late-night TED Talks at 3AM 💀<br><br>
+
+      Sometimes I feel like you're Masha and I’m the bear — always cleaning up your chaos, yet still loving the madness. So here’s my wish for you: May your life be full of soft toys, weird cartoons, zero stress, and unlimited cake. And may you never stop being the introverted, adorable troublemaker you are 😌<br><br>
+
+      If you ever feel low, confused, or like the world’s too much — remember there’s one person out here who gets your weirdness, accepts your chaos, and secretly enjoys all of it.<br><br>
+
+      Yours (but casually, no pressure... or is there? 😜),<br><br>
+
+      ~ The one who made this crazy website (𝚙𝚛𝚊𝚗𝚝𝚒𝚔)  
+    </div>
+
+    <!-- Button below letter -->
+    <button class="surprise-btn" onclick="goToSurprise()">🎁 The Last Surprise 💝</button>
+  </div>
+
+  <!-- Background music -->
+  <audio id="bgMusic" autoplay loop muted>
+    <source src="yourfile.mp3" type="audio/mpeg" />
+  </audio>
+  <button onclick="toggleMusic()" class="music-btn">🔊</button>
+
+  <script>
+    // Floating emojis
+    function createFloatingEmoji() {
+      const emojis = ['💖', '✨', '🎉', '🌸', '🎈', '❤️', '💫'];
+      const emoji = document.createElement('div');
+      emoji.className = 'floating';
+      emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      emoji.style.left = `${Math.random() * 100}%`;
+      emoji.style.fontSize = `${26 + Math.random() * 16}px`;
+      document.getElementById('emoji-bg').appendChild(emoji);
+      setTimeout(() => emoji.remove(), 10000);
+    }
+    setInterval(createFloatingEmoji, 400);
+
+    // Music toggle
+    function toggleMusic() {
+      const music = document.getElementById('bgMusic');
+      music.muted = !music.muted;
+    }
+
+    // Redirect to surprise
+    function goToSurprise() {
+      const btn = document.querySelector('.surprise-btn');
+      btn.classList.add('flop');
+      setTimeout(() => {
+        window.location.href = '6.html';
+      }, 400);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Ahana 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #8e2de2, #ff6ec4, #00c3ff);
+      background-size: 400% 400%;
+      animation: bgFlow 15s ease infinite;
+      font-family: 'Pacifico', cursive;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      z-index: 10;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+      z-index: 10;
+    }
+
+    .btn {
+      padding: 15px 32px;
+      font-size: 1.3rem;
+      border: none;
+      border-radius: 30px;
+      background: white;
+      color: #ff1493;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+      transition: 0.3s ease;
+      z-index: 10;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+    }
+
+    .floating {
+      position: fixed;
+      top: 100%;
+      pointer-events: none;
+      font-size: 30px;
+      opacity: 0.85;
+      animation: floatUp 8s linear forwards;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    @keyframes bgFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  body.closing {
+  animation: flopExit 1s ease forwards;
+}
+
+@keyframes flopExit {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  60% {
+    transform: scale(0.9) rotate(-8deg);
+  }
+  100% {
+    transform: scale(0.5) rotate(20deg);
+    opacity: 0;
+  }
+}</style>
+</head>
+<body>
+
+  <h1>Welcome, Ahana! 🎀</h1>
+  <p>Your special surprise is waiting... 🎁</p>
+  <button class="btn" onclick="startSurprise()">Start Your Surprise</button>
+
+  <audio id="bgMusic" autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/11/13/audio_b4c5f04f0e.mp3?filename=soft-emotional-piano-ambient-126186.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    // Floating emojis and hearts
+    function createFloating() {
+      const items = ['💖','🎉','🎂','🌸','🎀','✨','💐','🥰','🎈','😍','❤️'];
+      const el = document.createElement('div');
+      el.className = 'floating';
+      el.textContent = items[Math.floor(Math.random() * items.length)];
+      el.style.left = `${Math.random() * 100}%`;
+      el.style.fontSize = `${28 + Math.random() * 12}px`;
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 8000);
+    }
+
+    setInterval(createFloating, 300);
+
+    // Redirect with burst
+ function startSurprise() {
+  document.body.classList.add('closing');
+  for (let i = 0; i < 30; i++) {
+    setTimeout(createFloating, i * 100);
+  }
+  setTimeout(() => {
+    window.location.href = '2.html'; // or your next page
+  }, 1000); // wait for animation to finish
+}
+  </script>
+
+</body>
+</html>

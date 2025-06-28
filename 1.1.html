@@ -1,0 +1,112 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How are you?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #333;
+      margin: 20px 0 40px;
+      animation: fadeIn 2s ease;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    a.button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      text-decoration: none;
+      border-radius: 12px;
+      color: white;
+      background-color: #ff6f61;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    a.button:hover {
+      transform: scale(1.1);
+      background-color: #e85d4f;
+    }
+
+    .floppy {
+      font-size: 4rem;
+      animation: flop 2s infinite ease-in-out;
+      margin-bottom: 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .flop-tap {
+      animation: tap-bounce 0.5s forwards;
+    }
+
+    @keyframes flop {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+      25% {
+        transform: translateY(-10px) rotate(-10deg);
+      }
+      50% {
+        transform: translateY(-5px) rotate(10deg);
+      }
+      75% {
+        transform: translateY(-15px) rotate(-5deg);
+      }
+    }
+
+    @keyframes tap-bounce {
+      0% { transform: scale(1) translateY(0); }
+      25% { transform: scale(1.2, 0.8) translateY(10px); }
+      50% { transform: scale(0.9, 1.1) translateY(-15px); }
+      100% { transform: scale(1) translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="floppy" id="floppy">🧸</div>
+  <h1>How are you? 😊</h1>
+
+  <div class="button-container">
+    <a href="#" class="button" onclick="handleClick('1.2.html')">good😄</a>
+    <a href="#" class="button" onclick="handleClick('1.1.1.html')">bad😢</a>
+  </div>
+
+  <script>
+    function handleClick(targetPage) {
+      const floppy = document.getElementById('floppy');
+      floppy.classList.remove('flop-tap'); // reset if already triggered
+      void floppy.offsetWidth; // force reflow
+      floppy.classList.add('flop-tap');
+      setTimeout(() => {
+        window.location.href = targetPage;
+      }, 500); // wait for animation
+    }
+  </script>
+
+</body>
+</html>

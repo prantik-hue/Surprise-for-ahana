@@ -1,0 +1,410 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, My Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Pacifico&family=Lobster&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .floating-heart, .floating-emoji {
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+  animation: floatUp 6s linear forwards;
+  font-size: 24px;
+  opacity: 0.9;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+.heart-button {
+  animation: heartBeat 2s infinite alternate, glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 0, 100, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 0, 100, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 0, 100, 0.5);
+  }
+}
+
+    body {
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background: linear-gradient(135deg, #ff2a6d 0%, #ffd700 30%, #ff9e1f 50%, #1fbbff 75%, #ff3d8c 100%);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'%3E%3Cpath fill='%23FFDF00' d='M12 0L14.91 7.09L22 9.9L14.91 12.91L12 20L9.09 12.91L2 9.9L9.09 7.09z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      width: 20px;
+      height: 20px;
+      animation: twinkle 2s infinite;
+    }
+
+    .welcome-card {
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      border: 3px solid rgba(255, 215, 0, 0.6);
+      box-shadow: 0 8px 32px rgba(255, 105, 0, 0.4), 0 0 20px rgba(255, 215, 0, 0.5);
+      border-radius: 30px;
+      padding: 50px;
+      text-align: center;
+      max-width: 95%;
+      width: 500px;
+      position: relative;
+      z-index: 10;
+      transition: all 0.7s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+      overflow: hidden;
+    }
+
+    .celebration-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 30px;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .celebration-border:before,
+    .celebration-border:after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 215, 0, 0.4) 20%,
+        transparent 40%,
+        rgba(255, 69, 0, 0.3) 60%,
+        transparent 80%);
+      transform: rotate(45deg);
+      animation: celebrationBorder 10s linear infinite;
+    }
+
+    .celebration-border:after {
+      animation-delay: -5s;
+    }
+
+    h1 {
+      font-family: 'Lobster', cursive;
+      color: #ff0051;
+      font-size: 3.2rem;
+      margin-bottom: 25px;
+      text-shadow: 3px 3px 0px rgba(255, 215, 0, 0.5),
+                   6px 6px 15px rgba(0, 0, 0, 0.2);
+      animation: bounce 2s ease infinite alternate;
+    }
+
+    p {
+      font-family: 'Dancing Script', cursive;
+      color: #7209b7;
+      font-size: 1.4rem;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+
+      .welcome-card {
+        padding: 30px 20px;
+        border-radius: 20px;
+      }
+    .heart-button-container {
+      position: relative;
+      margin: 20px auto 10px;
+      width: 120px;
+      height: 120px;
+      perspective: 500px;
+    }
+
+    .heart-button {
+      position: relative;
+      width: 90px;
+      height: 80px;
+      margin: 0 auto;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+      transform-style: preserve-3d;
+      animation: heartBeat 2s infinite alternate;
+    }
+
+    .heart-button:before,
+    .heart-button:after {
+      position: absolute;
+      content: "";
+      left: 45px;
+      top: 0;
+      width: 45px;
+      height: 70px;
+      background: #ff0051;
+      border-radius: 50px 50px 0 0;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+      box-shadow: 0 0 25px rgba(255, 0, 81, 0.8),
+                  inset -5px -5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .heart-button:after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    .heart-button:hover {
+      transform: scale(1.15) translateY(-10px) rotateY(10deg);
+    }
+
+    .heart-button-text {
+      position: relative;
+      z-index: 5;
+      font-family: 'Pacifico', cursive;
+      color: white;
+      font-size: 1.2rem;
+      top: 28px;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .sound-control {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(5px);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 100;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2),
+                  inset 0 0 10px rgba(255, 255, 255, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .sound-control:hover {
+      transform: scale(1.1);
+    }
+
+    .sound-icon, .mute-icon {
+      width: 28px;
+      height: 28px;
+      transition: opacity 0.3s ease;
+      filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+    }
+
+    .mute-icon {
+      display: none;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes heartBeat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-10px); }
+    }
+
+    @keyframes celebrationBorder {
+      0% { transform: translate(-50%, -50%) rotate(45deg); }
+      100% { transform: translate(-50%, -50%) rotate(405deg); }
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+      100% { opacity: 0.3; transform: scale(0.8); }
+    }
+  </style>
+</head>
+ <body>
+  <div class="stars" id="stars"></div>
+
+  <div class="welcome-card" id="welcomeCard">
+    <div class="celebration-border"></div>
+
+    <h1>Happy Birthday, my madam ji ✨ 🎂🎉</h1>
+    <p>This page is just for you... made with love, smile, and a little bit of magic...</p>
+
+    <div class="heart-button-container">
+      <div class="heart-button" id="startButton">
+        <div class="heart-button-text">Begin</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sound-control" id="soundControl">
+    <svg class="sound-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ff0051">
+      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+    </svg>
+    <svg class="mute-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ff0051">
+      <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+    </svg>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/07/24/audio_8281aefa0a.mp3?filename=emotional-piano-118996.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+ <script>
+ function createFloatingHeartsAndEmojis() {
+  const items = ['💖', '🥰', '🎂', '🎈', '😍', '🎉', '❤️', '💝'];
+  const el = document.createElement('div');
+  el.className = Math.random() > 0.5 ? 'floating-heart' : 'floating-emoji';
+  el.style.left = `${Math.random() * 100}%`;
+  el.style.fontSize = `${20 + Math.random() * 15}px`;
+  el.textContent = items[Math.floor(Math.random() * items.length)];
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 6000);
+}
+
+// Auto-spawn hearts & emojis
+setInterval(createFloatingHeartsAndEmojis, 800);
+
+// Bonus burst on "Begin" button
+startButton.addEventListener('click', () => {
+  for (let i = 0; i < 25; i++) {
+    setTimeout(createFloatingHeartsAndEmojis, i * 100);
+  }
+});
+    // STAR CREATION
+    function createStar(container) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      const size = Math.random() * 0.7 + 0.5;
+      star.style.transform = `scale(${size})`;
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.top = `${Math.random() * 100}%`;
+      star.style.animationDuration = `${Math.random() * 3 + 1}s`;
+      star.style.animationDelay = `${Math.random() * 3}s`;
+      container.appendChild(star);
+    }
+
+    // INIT STARS
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 80; i++) {
+      createStar(starsContainer);
+    }
+
+    // SOUND CONTROL
+    const bgMusic = document.getElementById('bgMusic');
+    const soundControl = document.getElementById('soundControl');
+    const soundIcon = document.querySelector('.sound-icon');
+    const muteIcon = document.querySelector('.mute-icon');
+
+    soundControl.addEventListener('click', () => {
+      if (bgMusic.paused) {
+        bgMusic.play();
+        soundIcon.style.display = 'block';
+        muteIcon.style.display = 'none';
+      } else {
+        bgMusic.pause();
+        soundIcon.style.display = 'none';
+        muteIcon.style.display = 'block';
+      }
+    });
+
+    // AUTOPLAY TRY
+    bgMusic.volume = 0.4;
+    bgMusic.play().catch(() => {
+      soundIcon.style.display = 'none';
+      muteIcon.style.display = 'block';
+    });
+
+    // CONFETTI CELEBRATION
+    function launchConfettiBurst() {
+      for (let i = 0; i < 30; i++) {
+        const confetti = document.createElement('div');
+        confetti.style.position = 'absolute';
+        confetti.style.top = '0';
+        confetti.style.left = `${Math.random() * 100}%`;
+        confetti.style.width = '10px';
+        confetti.style.height = '10px';
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        confetti.style.animation = `fall ${Math.random() * 3 + 2}s ease-out forwards`;
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 5000);
+      }
+    }
+
+    // BEGIN BUTTON ACTION
+    const startButton = document.getElementById('startButton');
+    const welcomeCard = document.getElementById('welcomeCard');
+
+    startButton.addEventListener('click', () => {
+      launchConfettiBurst();
+      welcomeCard.style.transform = 'scale(1.1) rotate(3deg)';
+      setTimeout(() => {
+        welcomeCard.style.opacity = '0';
+        welcomeCard.style.transform = 'scale(0.8) rotate(-5deg)';
+      }, 300);
+      setTimeout(() => {
+        window.location.href = 'memory.html';
+      }, 1500);
+    });
+  </script>
+</body>
+</html>

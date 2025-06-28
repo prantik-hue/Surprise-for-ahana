@@ -1,0 +1,134 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Message for Ahana</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffdde1, #f7bb97, #c6f0ff, #dcd6f7);
+      background-size: 400% 400%;
+      animation: flow 20s ease infinite;
+      font-family: 'Pacifico', cursive;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    @keyframes flow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 40px 25px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.7rem;
+      margin-bottom: 20px;
+      text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .letter {
+      font-size: 1.4rem;
+      line-height: 2.1rem;
+      white-space: pre-line;
+      text-align: left;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .btn {
+      margin-top: 40px;
+      padding: 12px 30px;
+      font-size: 1.2rem;
+      background: white;
+      color: #d63384;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    .floating {
+      position: fixed;
+      top: 100%;
+      font-size: 26px;
+      opacity: 0.8;
+      pointer-events: none;
+      animation: floatUp 8s linear forwards;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-120vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/11/13/audio_b4c5f04f0e.mp3?filename=soft-emotional-piano-ambient-126186.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+    <h1>Dear Ahana 💖</h1>
+    <div class="letter">
+      Or should I say...  
+      My madam ji,  
+      My princess,  
+      My glowing star,  
+      My cute problem,  
+      My sweet candy,  
+      My laughter supplier,  
+      My calm during chaos,  
+      My little bundle of madness...  
+      
+      This is not just a birthday surprise...  
+      It’s a thank you — for being you.  
+      
+      So, close your eyes… and smile —  
+      Because this page is just the beginning.
+    </div>
+
+    <button class="btn" onclick="nextPage()">Next →</button>
+  </div>
+
+  <script>
+    function nextPage() {
+      window.location.href = '4.html'; // or your next surprise page
+    }
+
+    function floatEmoji() {
+      const emojis = ['💖','🌸','💐','✨','🥰','🎈'];
+      const el = document.createElement('div');
+      el.className = 'floating';
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      el.style.left = `${Math.random() * 100}%`;
+      el.style.fontSize = `${24 + Math.random() * 12}px`;
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 7000);
+    }
+
+    setInterval(floatEmoji, 400);
+  </script>
+
+</body>
+</html>
